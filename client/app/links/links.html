@@ -1,3 +1,7 @@
-<div id='container'>
-  <!-- Your html here -->
+<div id='container' ng-controller="LinksController">
+  <ul ng-model = "links">
+    <li ng-repeat="link in links">
+      {{link}}
+    </li>
+  </ul>
 </div>
