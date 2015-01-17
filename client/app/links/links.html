@@ -1,5 +1,6 @@
 <div id='container' ng-controller="LinksController" ng-model = "data.links">
-  <p ng-repeat="link in data.links">
+  <input ng-model="text.title">
+  <p ng-repeat="link in data.links | filter:text">
     {{link.title}}
     <br>
     {{link.url}} {{link.visits}}
