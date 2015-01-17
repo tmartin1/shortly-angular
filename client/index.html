@@ -5,20 +5,12 @@
     <title>Shortly</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
-  <body ng-controller="MainController">
+  <body>
     <h1>Shortly</h1>
-    <a href="links">Links</a>
-    <a href="#shorten">Shorten</a>
+    <a href="#/links">Links</a>
+    <a href="#/shorten">Shorten</a>
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view></div>
-
-    <div id='container' ng-controller="LinksController">
-      <ul ng-model = "links">
-        <li ng-repeat="link in links">
-          {{link}}
-        </li>
-      </ul>
-    </div>
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
