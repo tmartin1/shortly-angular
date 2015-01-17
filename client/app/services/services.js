@@ -3,16 +3,21 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http) {
   var links = {};
   links.getAll = function(onSuccess, onFailure) {
-    onSuccess = onSuccess || function(data, status, headers, config) {
-      console.log(data);
-    };
-    onFailure = onFailure || function(data, status, headers, config) {
-      console.log(data);
-    };
     $http.get('/api/links')
-      .success(onSuccess)
-      .error(onFailure);
+      .success(id(onSuccess))
+      .error(id(onFailure));
   };
+  links.link = {};
+  links.addLink = function(link, onSuccess, onFailure) {
+    $http.post('/api/links', link)
+      .success(id(onSuccess))
+      .error(id(onFailure));
+  };
+  function id(fn) {
+    return fn || function(data, status, headers, config) {
+      console.log(data);
+    };
+  }
   return links;
 })
 .factory('Auth', function ($http, $location, $window) {
